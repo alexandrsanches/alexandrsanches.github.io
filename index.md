@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## Alexandre Sanches
 
-You can use the [editor on GitHub](https://github.com/alexandrsanches/alexandrsanches.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Nessa página tento reunir e compartilhar alguns códigos que desenvolvi  para solucionar questões relacionadas a análises econométricas e  estatísticas.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Os códigos estão escritos pricipalmente em `R`. 
 
-### Markdown
+---
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Sobre mim
 
-```markdown
-Syntax highlighted code block
+Graduando em Ciências Econômicas, estando atualmente no 5º semestre. Sou estagiário da Secretaria de Política Econômica do Ministério da Economia, desenvolvendo projetos com ênfase em relatórios.
 
-# Header 1
-## Header 2
-### Header 3
+### Artigos
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alexandrsanches/alexandrsanches.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Monitor de Atividade Econômica
+- Acompanhamento de COVID-19
+- Indicador de Condições Financeiras
