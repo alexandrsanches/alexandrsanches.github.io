@@ -54,3 +54,33 @@ pubs_entries[10,5] <- "British pound carry trade activity"
 library(openxlsx)
 write.xlsx(pubs_entries, 'data/pubs.xlsx',
            overwrite = T)
+
+
+#####
+
+```{r}
+PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print("/home/bttomio/Documents/GitHub/bttomio.github.io/cv/index.html", format = "pdf") or pagedown::chrome_print("C:/Users/bttom/OneDrive - FURB/Documentos/GitHub/bttomio.github.io/cv/index.html", format = "pdf")
+if(PDF) {
+  header <- '
+  View online
+  <a href="https://bttomio.github.io/cv/" class="icon-block">
+      <i class="fas fafooter fa-globe"></i>
+  </a>
+  '
+} else {
+  header <- '
+  Download PDF
+  <a href="https://bttomio.github.io/CV_PDF/bttomio.pdf" class="icon-block">
+      <i class="fas fafooter fa-download"></i>
+  </a>
+  '
+}
+```
+
+
+<div class = "download">
+  ```{r results = "asis"}
+cat(header)
+```
+
+</div>
