@@ -1,0 +1,153 @@
+---
+title: "CV | Alexandre L. Sanches"
+first: "ok"
+date: "Updated `r Sys.Date()`"
+output:
+  pagedown::html_paged:
+    self_contained: false
+    css: 
+    - style.css
+    - https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css
+    number_sections: false
+links-to-footnotes: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(knitr)
+opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+options(knitr.kable.NA = '')
+
+#### cv entries #####
+cv_entries <- readxl::read_xlsx(here::here("data", "cv_entries.xlsx"))
+
+```
+
+
+```{r}
+PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print("/home/bttomio/Documents/GitHub/bttomio.github.io/cv/index.html", format = "pdf") or pagedown::chrome_print("C:/Users/bttom/OneDrive - FURB/Documentos/GitHub/bttomio.github.io/cv/index.html", format = "pdf")
+if(PDF) {
+  header <- '
+  View online
+  <a href="https://bttomio.github.io/cv/" class="icon-block">
+      <i class="fas fafooter fa-globe"></i>
+  </a>
+  '
+} else {
+  header <- '
+  Download PDF
+  <a href="https://bttomio.github.io/CV_PDF/bttomio.pdf" class="icon-block">
+      <i class="fas fafooter fa-download"></i>
+  </a>
+  '
+}
+```
+
+
+<div class = "download">
+```{r results = "asis"}
+cat(header)
+```
+
+</div>
+
+<div class = "footer",>
+  <a href="mailto:al.sanches@icloud.com" class="icon-block">
+      <i class="fas fafooter fa-envelope"> </i>
+  </a>
+  |
+  <a href="https://www.linkedin.com/in/alexandre-leao-sanches/" class="icon-block">
+      <i class="fab fafooter fa-linkedin"> </i>
+  </a>
+  |
+  <a href="https://github.com/alexandrsanches" class="icon-block">
+      <i class="fab fafooter fa-github"> </i>
+  </a>
+  
+</div>
+
+
+<div id = "block_container">
+
+<div class = "first", id="bloc1">Alexandre Leão</div>  
+<div class = "last", id="bloc2">Sanches</div>
+
+</div>
+
+<div id = "position", class = "position">
+<a href="mailto:al.sanches@icloud.com"> <span style="color: #454545"><i class="fas fa-envelope"></i></span> <span style= 'color: #5F6A6A'>al.sanches@icloud.com </a></span>
+</div>
+
+## Education {.education .nohead}
+
+```{r}
+cv_entries %>% 
+  filter(type == 'education') %>% 
+  mutate(what = paste0(paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"), ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what),
+         what = ifelse(!is.na(url), 
+                       paste0("[", what, "](", url, ")"), 
+                       what)
+         ) %>% 
+  mutate(year = str_c(year_begin, 
+                      " ", 
+                      ifelse(is.na(year_end), "", year_end))) %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Brief Professional History {.history .nohead}
+
+```{r}
+cv_entries %>% 
+  filter(type == 'history') %>% 
+  mutate(what = paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"),
+    what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what)) %>% 
+  mutate(year = str_c(year_begin, 
+                      " ", 
+                      ifelse(is.na(year_end), "", year_end))) %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Skills {.nohead}
+
+```{r message=FALSE}
+options(kableExtra.auto_format = F)
+library(kableExtra)
+df <- data.frame(Text_0 = c("Languages", "English: Independent User (B1-B2)", "Portuguese: Native speaker", "", ""),
+                 Text_2 = c("", "", "", "", ""),
+                 Text_1 = c("Programming and Econometrics", "R", "Python", "EViews", "Excel"))
+df %>%
+  kable(format = "html", align = c("l")) %>%
+  row_spec(1:1, bold = T) %>%
+  column_spec(1, width = "10cm") %>%
+  column_spec(2, width = "4cm") %>%
+  column_spec(3, width = "10cm")
+```
+
+## References {.nohead}
+
+```{r echo=FALSE, message=FALSE}
+library(kableExtra)
+df1 <- data.frame(Text_0 = c("Henrique Andrade", "Economic Policy Secretariat of the Ministry of Economy", "henrique.coelho@economia.gov.br"),
+                  space = c(" ", " ", " "),
+                  Text_1 = c("Fausto Vieira", "Economic Policy Secretariat of the Ministry of Economy", "fausto.vieira@economia.gov.br"))
+
+df1 %>%
+  kable(format = "html",align = c("l")) %>%
+  kable_styling(font_size = 15) %>%
+  row_spec(c(1:1), bold = T) %>%
+  column_spec(1, width = "8cm") %>%
+  column_spec(2, width = "2cm") %>%
+  column_spec(3, width = "13cm")
+  #column_spec(c(1,2), width = "6.5cm")
+```
