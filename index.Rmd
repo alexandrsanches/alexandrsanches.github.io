@@ -91,7 +91,7 @@ cv_entries %>%
   kable()
 ```
 
-## Events and certificates {.nohead}
+## Events and certificates {.history .nohead}
 
 ```{r message=FALSE}
 cv_entries %>% 
