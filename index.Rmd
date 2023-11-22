@@ -133,9 +133,9 @@ df %>%
 
 ```{r echo=FALSE, message=FALSE}
 library(kableExtra)
-df1 <- data.frame(Text_0 = c("Henrique Andrade", "Economic Policy Secretariat of the Ministry of Economy", "henrique.coelho@economia.gov.br"),
+df1 <- data.frame(Text_0 = c("Henrique Andrade", "Economic Policy Secretariat of the Ministry of Economy", "henrique.coelho@fazenda.gov.br"),
                   space = c(" ", " ", " "),
-                  Text_1 = c("Fausto Vieira", "Economic Policy Secretariat of the Ministry of Economy", "fausto.vieira@economia.gov.br"))
+                  Text_1 = c("Fausto Vieira", "Economic Policy Secretariat of the Ministry of Economy", "fausto.vieira@fazenda.gov.br"))
 
 df1 %>%
   kable(format = "html",align = c("l")) %>%
